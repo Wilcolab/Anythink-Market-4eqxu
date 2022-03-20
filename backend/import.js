@@ -26,4 +26,8 @@ var userId = db.users.findOne({},{_id : 1});
     __v: 1,
     comments: []
   });
+var itemId = db.items.findOne({},{_id : 1});
+db.comments.insertOne({body : "Nice Comment" + i, seller : userId._id, item: itemId._id
+    
+});
 }
