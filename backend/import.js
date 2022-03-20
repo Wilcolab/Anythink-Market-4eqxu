@@ -1,4 +1,5 @@
 use myFirstDatabase;
+var userId = db.users.findOne({},{_id : 1});
 for (var i=0; i<=500; i++){
    db.items.insertOne({
     slug: 'nike-shoes' + i,
@@ -10,7 +11,7 @@ for (var i=0; i<=500; i++){
     tagList: [ 'shoes' ],
     favorited: false,
     favoritesCount: 0,
-    seller: ObjectId("623334a0ba168962cb11c56a"),
+    seller: userId._id,
     __v: 1,
     comments: []
   });
