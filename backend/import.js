@@ -1,4 +1,3 @@
-use myFirstDatabase;
 var userId = db.users.findOne({},{_id : 1});
 for (var i=0; i<=500; i++){
    db.items.insertOne({
