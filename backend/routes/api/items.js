@@ -38,7 +38,7 @@ router.param("comment", function(req, res, next, id) {
 
 router.get("/", auth.optional, function(req, res, next) {
   var query = {};
-  var limit = 20;
+  var limit = 100;
   var offset = 0;
 
   if (typeof req.query.limit !== "undefined") {
@@ -315,21 +315,17 @@ router.delete("/:item/comments/:comment", auth.required, function(
   res,
   next
 ) {
-  if (req.comment.seller.toString() === req.payload.id.toString()) {
-    req.item.comments.remove(req.comment._id);
-    req.item
-      .save()
-      .then(
-        Comment.find({ _id: req.comment._id })
-          .remove()
-          .exec()
-      )
-      .then(function() {
-        res.sendStatus(204);
-      });
-  } else {
-    res.sendStatus(403);
-  }
+  req.item.comments.remove(req.comment._id);
+  req.item
+    .save()
+    .then(
+      Comment.find({ _id: req.comment._id })
+        .remove()
+        .exec()
+    )
+    .then(function() {
+      res.sendStatus(204);
+    });
 });
 
 module.exports = router;

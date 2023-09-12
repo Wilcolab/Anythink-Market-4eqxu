@@ -2,27 +2,6 @@
 
 The Anythink Market backend is Node web app written with [Express](https://expressjs.com/)
 
-## Getting started
-
-
-Make sure your MongoDB instance is up and [running](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/). Place the MONGODB_URI in  `.env` file:
-```
-MONGODB_URI=mongodb://<HOST>:<PORT>
-```
-Install all dependencies:
-```
-npm install --save dotenv
-npm install --force
-```
-
-To start the app use: `./start.sh` from the backend directory.
-
-Health Check:
-```
-http://localhost:3000/api/ping
-```
-
-
 ## Dependencies
 
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - For generating JWTs used by authentication
